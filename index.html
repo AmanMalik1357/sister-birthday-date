@@ -7,15 +7,29 @@
     <title>Remaning days</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="logo/favicon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="main">
-       <h1 id="time"> 23:30:23</h1>
-       <h2 id="demo"></h2>
-       <h2 id="demo2"></h2>
-       <h2 id="demo3"></h2>
+        
+        <h5>Dear Sister, Your next birthday comes in:</h5>
+       <h1 id="time"> Loading ... </h1>
+        <h4>Wish you all the best.</h4>
+       
+       
+       
     </div>
-
+    <div id="party">
+        To give party <span id="openqr" onclick="openqrcode()">click here</span>
+    </div>
+    <div id="qr">
+        <img src="image/qrcode.jpeg" alt="">
+        <span id="closeqr" onclick="closeqrcode()">&times;</span>
+        <div id="text">
+        <h3>Scan this qr code to send money for party.</h3>
+        <span>(minimum amount: 200rs)</span>
+    </div>
+    </div>
     <script src="js/javascript.js"></script>
 </body>
 </html>
