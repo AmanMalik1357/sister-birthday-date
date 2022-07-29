@@ -43,8 +43,8 @@ body {
 
 #party{
     position: fixed;
-    bottom: 0px;
-    left: 0px;
+    bottom: 8px;
+    left: 8px;
 }
 #party #openqr{
     cursor: pointer;
