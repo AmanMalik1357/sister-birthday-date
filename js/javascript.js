@@ -13,7 +13,6 @@ setInterval(() => {
     
     }
     let timedifference = birthday.getTime() - currenttime.getTime();
-    
     // to find out if birth year is leap or not
     let feb;
     function leapYear(birthYear) {
@@ -31,7 +30,14 @@ setInterval(() => {
             }
         }
     }
-    
+    leapYear();
+    // if today is birthday
+    if ((birthday.getDate()==currenttime.getDate()) && (birthday.getMonth()==currenttime.getMonth())){
+        document.getElementById('congrats').style.display = 'block';
+    }
+    else{
+        document.getElementById('congrats').style.display = 'none';
+    }
     
     let daysinMonth;
     switch (currenttime.getMonth()) {
@@ -146,6 +152,7 @@ qr = document.getElementById('qr');
 function openqrcode() {
     qr.style.display = 'block';
 }
+// hide qr code
 function closeqrcode() {
     qr.style.display = 'none';
 }

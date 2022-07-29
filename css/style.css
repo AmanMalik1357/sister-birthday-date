@@ -40,6 +40,21 @@ body {
     top: 0px;
     right: -240px;
 }
+#main h2{
+    display: none;
+    font-size: 2.3rem;
+    margin: 40px;
+    text-align: center;
+    font-family: 'Square Peg', cursive;
+    /* text-indent: 10px; */
+    letter-spacing: 4px;
+
+}
+#main h2 #wish{
+    display: block;
+    font-size: 2.4rem;
+    padding: 5px;
+}
 
 #party{
     position: fixed;
@@ -59,6 +74,7 @@ body {
     height: 100vh;
     width: 100vw;
     background-color: rgba(0, 0, 0, 0.849);
+    overflow: auto;
 }
 #qr img{
     
