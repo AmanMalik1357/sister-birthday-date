@@ -10,7 +10,7 @@ setInterval(() => {
     if (birthday.getTime() < Date.now()) {
         let birthYear = (new Date).getFullYear() + 1;
         birthday = new Date(birthYear + "-03-16");
-    
+
     }
     let timedifference = birthday.getTime() - currenttime.getTime();
     // to find out if birth year is leap or not
@@ -32,13 +32,13 @@ setInterval(() => {
     }
     leapYear();
     // if today is birthday
-    if ((birthday.getDate()==currenttime.getDate()) && (birthday.getMonth()==currenttime.getMonth())){
+    if ((birthday.getDate() == currenttime.getDate()) && (birthday.getMonth() == currenttime.getMonth())) {
         document.getElementById('congrats').style.display = 'block';
     }
-    else{
+    else {
         document.getElementById('congrats').style.display = 'none';
     }
-    
+
     let daysinMonth;
     switch (currenttime.getMonth()) {
         case 0:
@@ -77,73 +77,83 @@ setInterval(() => {
         case 11:
             daysinMonth = 31;
             break;
-    
+
         default:
             break;
     }
-    
-    
+
+
     let months;
     let days;
     let hours;
     let minutes;
     let seconds;
-    
+
     // months
-    // if (birthday.getMonth() < currenttime.getMonth()){
-    //     months = 12 - currenttime.getMonth() + birthday.getMonth();
-    // }
-    // else if (birthday.getMonth() > currenttime.getMonth()){
-    //     months = birthday.getMonth() - birthday.getMonth();
-    // }
-    
     if ((timedifference) / (1000 * 60 * 60 * 24) < daysinMonth) {
         months = 0;
     }
-    else if (birthday.getMonth() < currenttime.getMonth()) {
-        months = 12 - currenttime.getMonth() + birthday.getMonth() - 1;
+    else if ((birthday.getDate() > currenttime.getDate())) {
+            if (birthday.getMonth() < currenttime.getMonth()) {
+                months = 12 - currenttime.getMonth() + birthday.getMonth();
+            }
+            else if (birthday.getMonth() > currenttime.getMonth()) {
+                months = birthday.getMonth() - currenttime.getMonth();
+            }
+    } else if ((birthday.getDate() <= currenttime.getDate())){
+            if (birthday.getMonth() < currenttime.getMonth()) {
+                months = 12 - currenttime.getMonth() + birthday.getMonth() -1;
+            }
+            else if (birthday.getMonth() > currenttime.getMonth()) {
+                months = birthday.getMonth() - currenttime.getMonth() -1;
+            } else if (birthday.getMonth() == currenttime.getMonth()) {
+                    months = 11;
+                }
     }
-    else if (birthday.getMonth() > currenttime.getMonth()) {
-        months = birthday.getMonth() - currenttime.getMonth() - 1;
-    }
-    else if (birthday.getMonth() == currenttime.getMonth()) {
-        months = 11;
-    }
-    
+    // else if (birthday.getMonth() < currenttime.getMonth()) {
+    //     months = 12 - currenttime.getMonth() + birthday.getMonth() - 1;
+    // }
+    // else if (birthday.getMonth() > currenttime.getMonth()) {
+    //     months = birthday.getMonth() - currenttime.getMonth() - 1;
+    // }
+    // else if (birthday.getMonth() == currenttime.getMonth()) {
+    //     months = 11;
+    // }
+
     // days
     if ((timedifference / (1000 * 60 * 60 * 24)) <= daysinMonth) {
         if ((birthday.getDate()) <= (currenttime.getDate())) {
             months = 0;
             days = daysinMonth - currenttime.getDate() + birthday.getDate() - 1;
-    
+
         } else if (birthday.getDate() > currenttime.getDate()) {
-    
+
             days = birthday.getDate() - currenttime.getDate() - 1;
         }
     }
     else if (birthday.getDate() > currenttime.getDate()) {
-    
+
         days = birthday.getDate() - currenttime.getDate() - 1;
     }
     else if (birthday.getDate() < currenttime.getDate()) {
-    
+
         days = daysinMonth - currenttime.getDate() + birthday.getDate() - 1;
     } else if (birthday.getDate() == currenttime.getDate()) {
-    
+
         days = daysinMonth - currenttime.getDate() + birthday.getDate() - 1;
     }
     // hours
-    
+
     hours = 24 - currenttime.getHours() - 1;
-    
+
     // minutes
     minutes = 60 - currenttime.getMinutes() - 1;
-    
+
     // seconds
     seconds = 60 - currenttime.getSeconds() - 1;
     time.innerHTML = months + ":" + days + ":" + hours + ":" + minutes + ":" + seconds;
-    
-    
+
+
 }, 1000);
 
 
